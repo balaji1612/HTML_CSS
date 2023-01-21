@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="board.css">
+    </head>
+    <body>
+        <div id="out">
+            
+        </div>
+        <script>
+            let htmldata="";
+            fetch("https://fakestoreapi.com/products")
+            .then(data=>data.json())
+            .then(completedata=>{//completedata-->variable
+                completedata.map((obj1)=>{
+                htmldata=htmldata+`<div class="in">
+                <h3 class="title">${obj1.title}</h3>
+                <img src=${obj1.image} alt="watch" class="images">
+                <p class="description">${obj1.description}</p>
+                <h3 class="category">${obj1.category}</h3>
+                <h3 class="price">${obj1.price}</h3>
+                </div>`//jsp
+            })
+                document.getElementById("out").innerHTML=htmldata;
+            })
+        </script>
+    </body>
+</html>
